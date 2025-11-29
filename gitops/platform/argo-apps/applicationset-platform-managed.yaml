@@ -20,7 +20,7 @@ spec:
       project: default
       source:
         path: gitops/platform/platform-manifests/managed
-        repoURL: 'https://github.com/shirodkar/demo-acm-gitops.git'
+        repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
         helm:
           parameters:
@@ -58,7 +58,7 @@ spec:
       project: default
       source:
         path: gitops/platform/platform-manifests/managed
-        repoURL: 'https://github.com/shirodkar/demo-acm-gitops.git'
+        repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
         helm:
           parameters:
@@ -96,7 +96,7 @@ spec:
       project: default
       source:
         path: gitops/platform/platform-manifests/managed
-        repoURL: 'https://github.com/shirodkar/demo-acm-gitops.git'
+        repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
         helm:
           parameters:

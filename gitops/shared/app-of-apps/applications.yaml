@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: gitops/shared/argo-apps
-    repoURL: 'https://github.com/shirodkar/demo-acm-gitops.git'
+    repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
     targetRevision: HEAD
     directory:
       recurse: true
