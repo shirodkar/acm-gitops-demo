@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - hub-only
+    - hub-clusters
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
@@ -32,7 +32,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - dev-only
+    - dev-clusters
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
@@ -41,7 +41,7 @@ metadata:
   namespace: shared-gitops
 spec:
   clusterSets:
-    - dev-only
+    - dev-clusters
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
@@ -50,7 +50,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - qa-only
+    - qa-clusters
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
@@ -59,7 +59,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - uat-only
+    - uat-clusters
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
@@ -68,7 +68,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - prod-only
+    - prod-clusters
   predicates:
     - requiredClusterSelector:
         labelSelector:
@@ -85,7 +85,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-    - prod-only
+    - prod-clusters
   predicates:
     - requiredClusterSelector:
         labelSelector:
