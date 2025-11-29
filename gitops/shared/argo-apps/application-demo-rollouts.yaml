@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-rollouts
+  namespace: shared-gitops
+  labels:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: dev-only-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: demo-rollouts-{{name}}
+    spec:
+      destination:
+        namespace: demo-rollouts
+        server: "{{server}}"
+      project: default
+      source:
+        path: gitops/shared/demo-apps/rollouts-demo
+        repoURL: 'https://github.com/shirodkar/demo-acm-gitops.git'
+        targetRevision: HEAD
+        directory:
+          recurse: true
+      syncPolicy:
+        automated:
+          enabled: true
+          prune: true
+          selfHeal: true

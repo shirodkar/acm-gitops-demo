@@ -1,11 +1,19 @@
-apiVersion: serving.knative.dev/v1
-kind: Service
+kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: rollouts-demo
+  labels:
+    app: rollouts-demo
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rollouts-demo
   template:
+    metadata:
+      labels:
+        app: rollouts-demo
     spec:
-      containerConcurrency: 1
       containers:
         - name: rollouts-demo
           image: 'quay.io/openshiftdemos/rollouts-demo:blue'
@@ -19,6 +27,3 @@ spec:
             requests:
               cpu: 100m
               memory: 256Mi
-  traffic:
-    - latestRevision: true
-      percent: 100
