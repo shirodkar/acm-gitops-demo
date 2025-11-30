@@ -33,6 +33,14 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta2
 kind: ManagedClusterSetBinding
 metadata:
+  name: qa-clusters
+  namespace: shared-gitops
+spec:
+  clusterSet: qa-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSetBinding
+metadata:
   name: uat-clusters
   namespace: openshift-gitops
 spec:
@@ -41,7 +49,23 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta2
 kind: ManagedClusterSetBinding
 metadata:
+  name: uat-clusters
+  namespace: shared-gitops
+spec:
+  clusterSet: uat-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSetBinding
+metadata:
   name: prod-clusters
   namespace: openshift-gitops
+spec:
+  clusterSet: prod-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSetBinding
+metadata:
+  name: prod-clusters
+  namespace: shared-gitops
 spec:
   clusterSet: prod-clusters
