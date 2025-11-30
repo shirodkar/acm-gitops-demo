@@ -82,6 +82,7 @@ spec:
       g, system:cluster-admins, role:admin
       g, cluster-admins, role:admin
       p, role:developers, *, get, *, allow
+      p, role:developers, *, sync, *, allow
       g, developers, role:developers
     defaultPolicy: role:none
     scopes: '[accounts,groups,email]'
