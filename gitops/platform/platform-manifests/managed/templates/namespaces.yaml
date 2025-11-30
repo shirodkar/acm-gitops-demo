@@ -1,9 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: demo-serving
----
-kind: Namespace
-apiVersion: v1
-metadata:
   name: demo-rollouts

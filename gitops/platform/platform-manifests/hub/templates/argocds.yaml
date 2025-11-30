@@ -211,3 +211,18 @@ spec:
   href: '{{ .Values.sharedgitopsurl }}'
   location: ApplicationMenu
   text: Shared Argo CD
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: project-demo-rollouts
+  namespace: shared-gitops
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  sourceRepos:
+    - '*'
