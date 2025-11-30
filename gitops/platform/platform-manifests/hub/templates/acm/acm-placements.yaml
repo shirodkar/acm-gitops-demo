@@ -28,6 +28,24 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
+  name: all-managed-placement
+  namespace: shared-gitops
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: env
+              operator: In
+              values:
+                - dev
+                - qa
+                - uat
+                - prod
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
   name: dev-only-placement
   namespace: openshift-gitops
 spec:
@@ -55,6 +73,15 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
+  name: qa-only-placement
+  namespace: shared-gitops
+spec:
+  clusterSets:
+    - qa-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
   name: uat-only-placement
   namespace: openshift-gitops
 spec:
@@ -64,8 +91,26 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
+  name: uat-only-placement
+  namespace: shared-gitops
+spec:
+  clusterSets:
+    - uat-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
   name: prod-only-placement
   namespace: openshift-gitops
+spec:
+  clusterSets:
+    - prod-clusters
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: prod-only-placement
+  namespace: shared-gitops
 spec:
   clusterSets:
     - prod-clusters
@@ -90,8 +135,42 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
+  name: prod-1-only-placement
+  namespace: shared-gitops
+spec:
+  clusterSets:
+    - prod-clusters
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: sub-env
+              operator: In
+              values:
+                - prod-1
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
   name: prod-2-only-placement
   namespace: openshift-gitops
+spec:
+  clusterSets:
+    - prod-clusters
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: sub-env
+              operator: In
+              values:
+                - prod-2
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: prod-2-only-placement
+  namespace: shared-gitops
 spec:
   clusterSets:
     - prod-clusters
