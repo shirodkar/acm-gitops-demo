@@ -28,8 +28,8 @@ spec:
               value: '{{name}}'
             - name: bannercolor
               value: blue
-            - name: sharedgitopsurl
-              value: 'https://shared-gitops-server-shared-gitops.apps.{{ server | regexReplaceAll "^https?://" "" | regexReplaceAll ":[0-9]+$" "" | regexReplaceAll "^api\\." "" }}'
+            - name: serverurl
+              value: '{{server}}'
       syncPolicy:
         automated:
           enabled: true
