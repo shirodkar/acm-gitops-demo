@@ -108,3 +108,11 @@ spec:
           enabled: true
           prune: true
           selfHeal: true
+      syncOptions:
+        - RespectIgnoreDifferences=true
+      ignoreDifferences:
+        - group: route.openshift.io
+          kind: Route
+          jsonPointers:
+            - /spec/to
+            - /spec/alternateBackends
