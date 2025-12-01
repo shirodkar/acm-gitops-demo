@@ -1,3 +1,8 @@
+{{- define "managed.hostFromApiURL" -}}
+{{- $url := . -}}
+{{- $url | regexReplaceAll "^https?://" "" | regexReplaceAll ":[0-9]+$" "" | regexReplaceAll "^api\\." "" | trim -}}
+{{- end -}}
+
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
