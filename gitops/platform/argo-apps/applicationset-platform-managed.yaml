@@ -28,7 +28,7 @@ spec:
               value: '{{name}}'
             - name: bannercolor
               value: blue
-            - name: serverbaseurl
+            - name: serverurl
               value: '{{ server }}'
       syncPolicy:
         automated:
