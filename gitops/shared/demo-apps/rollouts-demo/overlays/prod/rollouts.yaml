@@ -33,7 +33,7 @@ spec:
       stableService: stable-service
       steps:
       - setWeight: 20
-      - pause: {duration: 10s}
+      - pause: {}
       - setWeight: 40
       - pause: {duration: 10s}
       - setWeight: 60
