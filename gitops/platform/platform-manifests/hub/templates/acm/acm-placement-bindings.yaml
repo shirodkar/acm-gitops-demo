@@ -25,3 +25,17 @@ subjects:
   - name: install-gitops-operator
     kind: Policy
     apiGroup: policy.open-cluster-management.io
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: require-gatekeeper-labels-on-ns
+  namespace: openshift-gitops
+placementRef:
+  name: hub-only-placement
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+subjects:
+  - name: require-gatekeeper-labels-on-ns
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
