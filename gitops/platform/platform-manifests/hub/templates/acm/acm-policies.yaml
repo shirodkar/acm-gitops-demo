@@ -129,7 +129,7 @@ spec:
                     minReplicas:
                       type: integer
           targets:
-          - target: admission.k8s.gatekeeper.sh/v1
+          - target: admission.k8s.gatekeeper.sh
             rego: |
               package k8sminreplicas
 
