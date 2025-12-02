@@ -106,7 +106,7 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: require-minimum-replicas-in-demo-rollouts
+  name: require-minimum-replicas
   namespace: openshift-gitops
 spec:
   remediationAction: enforce 
@@ -140,7 +140,7 @@ spec:
                 obj := input.review.object
                 # Only evaluate Deployments (other kinds can be added later)
                 obj.kind == "Deployment"
-                obj.metadata.namespace == "demo-rollouts"
+                obj.name == "rollouts-demo"
                 not has_min_replicas(obj)
                 msg := sprintf("Deployment '%s' in namespace '%s' must have at least %v replicas", [obj.metadata.name, obj.metadata.namespace, 5])
               }
