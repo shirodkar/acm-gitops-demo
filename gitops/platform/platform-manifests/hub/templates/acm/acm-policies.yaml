@@ -113,7 +113,7 @@ spec:
   disabled: false
   policy-templates:
     - objectDefinition:
-        apiVersion: templates.gatekeeper.sh
+        apiVersion: templates.gatekeeper.sh/v1
         kind: ConstraintTemplate
         metadata:
           name: k8sminreplicas
@@ -150,7 +150,7 @@ spec:
                 obj.spec.replicas >= 5
               }
     - objectDefinition:
-        apiVersion: constraints.gatekeeper.sh
+        apiVersion: constraints.gatekeeper.sh/v1
         kind: K8sMinReplicas
         metadata:
           name: demo-rollouts-min-replicas
