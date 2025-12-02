@@ -133,14 +133,15 @@ spec:
             rego: |
               package k8sminreplicas
 
-              # Deny Deployments in namespace "demo-rollouts" with replicas < 5
+              # Deny Deployment "rollouts-demo" in namespace "demo-rollouts" with replicas < 5
               violation[{
                 "msg": msg
               }] {
                 obj := input.review.object
-                # Only evaluate Deployments (other kinds can be added later)
+                # Only evaluate Deployments named "rollouts-demo"
                 obj.kind == "Deployment"
-                obj.name == "rollouts-demo"
+                obj.metadata.namespace == "demo-rollouts"
+                obj.metadata.name == "rollouts-demo"
                 not has_min_replicas(obj)
                 msg := sprintf("Deployment '%s' in namespace '%s' must have at least %v replicas", [obj.metadata.name, obj.metadata.namespace, 5])
               }
