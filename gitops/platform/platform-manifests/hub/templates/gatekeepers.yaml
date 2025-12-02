@@ -32,9 +32,6 @@ spec:
      - "UPDATE"
      - "CONNECT"
     failurePolicy: Fail
-    containerArguments: 
-    - name: ""
-      value: ""
     resources:
       limits:
         cpu: 480m
