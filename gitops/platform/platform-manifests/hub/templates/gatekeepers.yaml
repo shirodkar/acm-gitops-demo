@@ -39,10 +39,3 @@ spec:
       requests:
         cpu: 400m
         memory: 120Mi
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchLabels:
-              auditKey: "auditValue"
-          topologyKey: topology.kubernetes.io/zone
