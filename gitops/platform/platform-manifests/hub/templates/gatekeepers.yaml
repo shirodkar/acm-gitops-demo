@@ -22,7 +22,7 @@ spec:
   validatingWebhook: Enabled
   mutatingWebhook: Enabled
   webhook:
-    replicas: 3
+    replicas: 1
     emitAdmissionEvents: Enabled
     admissionEventsInvolvedNamespace: Enabled 
     disabledBuiltins:
