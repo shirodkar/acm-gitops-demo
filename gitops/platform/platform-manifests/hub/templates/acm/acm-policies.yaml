@@ -106,7 +106,7 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: require-gatekeeper-labels-on-ns
+  name: require-minimum-replicas-in-demo-rollouts
   namespace: openshift-gitops
 spec:
   remediationAction: enforce 
