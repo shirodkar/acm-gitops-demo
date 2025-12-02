@@ -141,7 +141,6 @@ spec:
                 # Only evaluate Deployments named "rollouts-demo"
                 obj.kind == "Deployment"
                 obj.metadata.namespace == "demo-rollouts"
-                obj.metadata.name == "rollouts-demo"
                 not has_min_replicas(obj)
                 msg := sprintf("Deployment '%s' in namespace '%s' must have at least %v replicas", [obj.metadata.name, obj.metadata.namespace, 5])
               }
