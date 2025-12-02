@@ -107,6 +107,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: require-gatekeeper-labels-on-ns
+  namespace: openshift-gitops
 spec:
   remediationAction: inform 
   disabled: false
