@@ -1,0 +1,68 @@
+apiVersion: operator.gatekeeper.sh/v1alpha1
+kind: Gatekeeper
+metadata:
+  name: gatekeeper
+spec:
+  audit:
+    replicas: 1
+    auditEventsInvolvedNamespace: Enabled 
+    logLevel: DEBUG
+    auditInterval: 10s
+    constraintViolationLimit: 55
+    auditFromCache: Enabled
+    auditChunkSize: 66
+    emitAuditEvents: Enabled
+    containerArguments: 
+    - name: ""
+      value: ""
+    resources:
+      limits:
+        cpu: 500m
+        memory: 150Mi
+      requests:
+        cpu: 500m
+        memory: 130Mi
+  validatingWebhook: Enabled
+  mutatingWebhook: Enabled
+  webhook:
+    replicas: 3
+    emitAdmissionEvents: Enabled
+    admissionEventsInvolvedNamespace: Enabled 
+    disabledBuiltins:
+     - http.send
+    operations: 
+     - "CREATE"
+     - "UPDATE"
+     - "CONNECT"
+    failurePolicy: Fail
+    containerArguments: 
+    - name: ""
+      value: ""
+    resources:
+      limits:
+        cpu: 480m
+        memory: 140Mi
+      requests:
+        cpu: 400m
+        memory: 120Mi
+  nodeSelector:
+    region: "EMEA"
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              auditKey: "auditValue"
+          topologyKey: topology.kubernetes.io/zone
+  tolerations:
+    - key: "Example"
+      operator: "Exists"
+      effect: "NoSchedule"
+  podAnnotations:
+    some-annotation: "this is a test"
+    other-annotation: "another test"
+  config: 
+    matches:
+      - excludedNamespaces: ["test-*", "my-namespace"]
+        processes: ["*"]
+    disableDefaultMatches: false 
