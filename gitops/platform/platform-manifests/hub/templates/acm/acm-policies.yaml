@@ -1,42 +1,42 @@
-apiVersion: policy.open-cluster-management.io/v1
-kind: Policy
-metadata:
-  name: install-platform-operators
-  namespace: openshift-gitops
-spec:
-  disabled: false
-  policy-templates:
-    - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1beta1
-        kind: OperatorPolicy
-        metadata:
-          name: install-pipelines-operator
-        spec:
-          complianceType: musthave
-          remediationAction: enforce
-          severity: critical
-          subscription:
-            name: openshift-pipelines-operator-rh
-            channel: latest
-            source: redhat-operators
-            sourceNamespace: openshift-marketplace
-          upgradeApproval: Automatic
-    - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1beta1
-        kind: OperatorPolicy
-        metadata:
-          name: install-devspaces-operator
-        spec:
-          complianceType: musthave
-          remediationAction: enforce
-          severity: critical
-          subscription:
-            name: devspaces
-            channel: stable
-            source: redhat-operators
-            sourceNamespace: openshift-marketplace
-          upgradeApproval: Automatic
----
+# apiVersion: policy.open-cluster-management.io/v1
+# kind: Policy
+# metadata:
+#   name: install-platform-operators
+#   namespace: openshift-gitops
+# spec:
+#   disabled: false
+#   policy-templates:
+#     - objectDefinition:
+#         apiVersion: policy.open-cluster-management.io/v1beta1
+#         kind: OperatorPolicy
+#         metadata:
+#           name: install-pipelines-operator
+#         spec:
+#           complianceType: musthave
+#           remediationAction: enforce
+#           severity: critical
+#           subscription:
+#             name: openshift-pipelines-operator-rh
+#             channel: latest
+#             source: redhat-operators
+#             sourceNamespace: openshift-marketplace
+#           upgradeApproval: Automatic
+#     - objectDefinition:
+#         apiVersion: policy.open-cluster-management.io/v1beta1
+#         kind: OperatorPolicy
+#         metadata:
+#           name: install-devspaces-operator
+#         spec:
+#           complianceType: musthave
+#           remediationAction: enforce
+#           severity: critical
+#           subscription:
+#             name: devspaces
+#             channel: stable
+#             source: redhat-operators
+#             sourceNamespace: openshift-marketplace
+#           upgradeApproval: Automatic
+# ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
