@@ -87,6 +87,15 @@ spec:
                 - name: CLUSTER_SCOPED_ARGO_ROLLOUTS_NAMESPACES
                   value: demo-rollouts
           upgradeApproval: Automatic
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: install-gatekeeper-operator
+  namespace: openshift-gitops
+spec:
+  disabled: false
+  policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
