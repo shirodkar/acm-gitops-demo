@@ -121,12 +121,10 @@ spec:
             rego: |
               package k8sminreplicas
 
-              # Deny Deployment "rollouts-demo" in namespace "demo-rollouts" with replicas < 5
               violation[{
                 "msg": msg
               }] {
                 obj := input.review.object
-                # Only evaluate Deployments named "rollouts-demo"
                 obj.kind == "Deployment"
                 obj.metadata.namespace == "book-import"
                 obj.metadata.name == "book-import"
@@ -142,7 +140,7 @@ spec:
         apiVersion: constraints.gatekeeper.sh/v1beta1
         kind: K8sMinReplicas
         metadata:
-          name: demo-rollouts-min-replicas
+          name: book-import-min-replicas
         spec:
           enforcementAction: deny
           match:
