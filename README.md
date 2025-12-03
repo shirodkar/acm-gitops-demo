@@ -27,7 +27,7 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 4. Run the command: 
 ```oc apply -f gitops/platform/app-of-apps/applications.yaml```
 
-**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up.
+**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up. The 'app-of-apps-platform" app may show Degraded status, but you can ignore that.
 
 5. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
 6. Add the 'local-cluster' to the 'hub-clusters' cluster set via 'Infrastructure=>Clusters=>Cluster sets'
@@ -36,7 +36,7 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 
 ## Import Managed Clusters into RHACM
 
-1. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
+1. In the Openshift Console, make sure you have switched to ACM using the 'Fleet Management' prespective.
 2. Import the Managed cluster(s) into ACM via 'Infrastructure=>Clusters=>Import Cluster'
   - Make sure to add the cluster to one of the following ClusterSets: dev, qa, uat, prod
   - Make sure to provide the 'env' label with one of the following values dev, qa, uat, prod. Example: ```env=dev```
