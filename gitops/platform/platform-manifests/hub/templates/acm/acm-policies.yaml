@@ -166,7 +166,7 @@ spec:
                 obj.spec.replicas >= 5
               }
     - objectDefinition:
-        apiVersion: constraints.gatekeeper.sh/v1beta1
+        apiVersion: constraints.gatekeeper.sh/v1
         kind: K8sMinReplicas
         metadata:
           name: demo-rollouts-min-replicas
