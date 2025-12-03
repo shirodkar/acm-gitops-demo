@@ -63,10 +63,11 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 1. Log into the Hub cluster from command line as 'developer'.
 2. Run the following command to deploy the 'rollouts-demo' application in all environments: 
 ```oc apply -f gitops/shared/app-of-apps/applications.yaml```
+3. Wait for successful deployment in Shared Argo CD at: https://shared-gitops-server-shared-gitops.<base url of hub cluster>
 
 #### Push Model (in dev)
 
-1. TBD
+1. View the ACM Topology at 'Applications=>demo-rollouts-dev=>Topology'
 
 #### Pull Model (in uat)
 
