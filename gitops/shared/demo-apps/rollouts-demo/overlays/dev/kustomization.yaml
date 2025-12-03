@@ -10,6 +10,6 @@ images:
 
 replicas:
   - name: rollouts-demo
-    count: 2
+    count: 10
 
 
