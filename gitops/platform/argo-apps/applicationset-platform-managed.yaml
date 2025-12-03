@@ -107,7 +107,7 @@ spec:
             - name: managedservername
               value: '{{name}}'
             - name: bannercolor
-              value: yellow
+              value: orange
             - name: serverurl
               value: '{{ server }}'
       syncPolicy:
