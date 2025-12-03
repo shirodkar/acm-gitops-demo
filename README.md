@@ -15,6 +15,7 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 4. Give ArgoCD access to the OCP cluster:
 
 ```oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller --rolebinding-name gitops-role-binding```
+
 5. Set up the following users in each cluster - 'admin', 'developer'. 
 Note: RBAC for these users will be automatically set up via GitOps in the next section.
 
@@ -25,6 +26,9 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 3. Make sure you are logged into the OCP cluster as a cluster admin.
 4. Run the command: 
 ```oc apply -f gitops/platform/app-of-apps/applications.yaml```
+
+**Note:** Wait for the Apps in Cluster Argo CD to sync up.
+
 5. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
 6. Add the 'local-cluster' to the 'hub-clusters' cluster set via 'Infrastructure=>Clusters=>Cluster sets'
 
