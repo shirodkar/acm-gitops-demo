@@ -9,7 +9,7 @@ spec:
         configMapRef: acm-placement
         labelSelector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: all-managed-placement
+            cluster.open-cluster-management.io/placement: dev-only-placement
         requeueAfterSeconds: 180
   template:
     metadata:
@@ -28,6 +28,86 @@ spec:
               value: '{{name}}'
             - name: bannercolor
               value: blue
+            - name: serverurl
+              value: '{{ server }}'
+      syncPolicy:
+        automated:
+          enabled: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: managed-uat
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: uat-only-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: managed-{{name}}
+    spec:
+      destination:
+        server: "{{server}}"
+      project: default
+      source:
+        path: gitops/platform/platform-manifests/managed
+        repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
+        targetRevision: HEAD
+        helm:
+          parameters:
+            - name: managedservername
+              value: '{{name}}'
+            - name: bannercolor
+              value: yellow
+            - name: serverurl
+              value: '{{ server }}'
+      syncPolicy:
+        automated:
+          enabled: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: managed-prod
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: prod-only-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: managed-{{name}}
+    spec:
+      destination:
+        server: "{{server}}"
+      project: default
+      source:
+        path: gitops/platform/platform-manifests/managed
+        repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
+        targetRevision: HEAD
+        helm:
+          parameters:
+            - name: managedservername
+              value: '{{name}}'
+            - name: bannercolor
+              value: red
             - name: serverurl
               value: '{{ server }}'
       syncPolicy:
