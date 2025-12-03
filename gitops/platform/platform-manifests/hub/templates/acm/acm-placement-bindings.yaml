@@ -46,7 +46,7 @@ metadata:
   name: require-minimum-replicas-on-managed-clusters
   namespace: openshift-gitops
 placementRef:
-  name: hub-only-placement
+  name: all-managed-placement
   kind: Placement
   apiGroup: cluster.open-cluster-management.io
 subjects:
