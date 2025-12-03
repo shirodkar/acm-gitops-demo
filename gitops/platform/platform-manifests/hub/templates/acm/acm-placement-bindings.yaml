@@ -29,7 +29,7 @@ subjects:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: install-gitops-operator-on-prod-clusters
+  name: install-gitops-operator-on-managed-clusters
   namespace: openshift-gitops
 placementRef:
   name: all-managed-placement
@@ -37,5 +37,33 @@ placementRef:
   apiGroup: cluster.open-cluster-management.io
 subjects:
   - name: install-gitops-operator
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: install-gatekeeper-operator-on-uat-clusters
+  namespace: openshift-gitops
+placementRef:
+  name: uat-only-placement
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+subjects:
+  - name: install-gitops-operator
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: require-minimum-replicas-placement-binding
+  namespace: openshift-gitops
+placementRef:
+  name: uat-only-placement
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+subjects:
+  - name: require-minimum-replicas
     kind: Policy
     apiGroup: policy.open-cluster-management.io
