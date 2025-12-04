@@ -129,7 +129,7 @@ spec:
                 obj.metadata.namespace == "book-import"
                 obj.metadata.name == "book-import"
                 not has_min_replicas(obj)
-                msg := sprintf("Deployment '%s' in namespace '%s' must have at least %v replicas", [obj.metadata.name, obj.metadata.namespace, 5])
+                msg := sprintf("Deployment '%s' in namespace '%s' must have at least %v replicas", [obj.metadata.name, obj.metadata.namespace, 10])
               }
 
               has_min_replicas(obj) {
