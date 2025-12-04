@@ -9,7 +9,7 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 
 ## Setup
 
-1. Install Advanced Cluster Management for Kubernetes (ACM) Operator on the Hub cluster
+1. Install Advanced Cluster Management for Kubernetes (ACM) Operator on the Hub cluster, and the MultiClusterHub instance.
 2. Install Openshift GitOps (ArgoCD) Operator on the Hub cluster.
 3. Make sure you are logged into the OCP cluster as a cluster admin.
 4. Give ArgoCD access to the OCP cluster:
@@ -27,7 +27,7 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 4. Run the command: 
 ```oc apply -f gitops/platform/app-of-apps/applications.yaml```
 
-**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up. The 'app-of-apps-platform" app may show Degraded status, but you can ignore that.
+**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up.
 
 5. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
 6. Add the 'local-cluster' to the 'hub-clusters' cluster set via 'Infrastructure=>Clusters=>Cluster sets'
@@ -87,8 +87,11 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 
 ### Deploying an Application using Progressive Delivery (in prod)
 
-1. View the ACM Topology at 'Applications=>demo-rollouts-uat=>Topology'
+1. View the ACM Topology at 'Applications=>demo-rollouts-prod=>Topology'
 2. View the apps in Shared Argo CD.
 3. View the paused status in Argo Rollouts UI.
+    - Log into the prod cluster as a cluster admin
+    - Run the command: ```oc argo rollouts dashboard```
+    - Launch the provided url in a browser, and select the 'demo-rollouts' project, on the top right.
 4. View the application UI. It should show partial rollout - 20%.
 4. Promote the rollout, and watch the application UI progress to 100% rollout.
