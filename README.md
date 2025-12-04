@@ -94,4 +94,4 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
     - Run the command: ```oc argo rollouts dashboard```
     - Launch the provided url in a browser, and select the 'demo-rollouts' project, on the top right.
 4. View the application UI. It should show partial rollout - 20%.
-4. Promote the rollout, and watch the application UI progress to 100% rollout.
+5. Promote the rollout, and watch the application UI progress to 100% rollout.
