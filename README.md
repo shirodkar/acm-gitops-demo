@@ -48,7 +48,7 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 
 ## Demo
 
-[Recorded Demo] (https://drive.google.com/file/d/1G8q8GQE-Iu7J8P64UWWMUuo92Xtok6rh/view?usp=sharing)
+[Recorded Demo](https://drive.google.com/file/d/1G8q8GQE-Iu7J8P64UWWMUuo92Xtok6rh/view?usp=sharing)
 
 ### Deploying an application Manually using the ACM Console
 
