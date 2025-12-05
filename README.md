@@ -48,6 +48,8 @@ Note: RBAC for these users will be automatically set up via GitOps in the next s
 
 ## Demo
 
+[Recorded Demo] (https://drive.google.com/file/d/1G8q8GQE-Iu7J8P64UWWMUuo92Xtok6rh/view?usp=sharing)
+
 ### Deploying an application Manually using the ACM Console
 
 1. 'Applications=>Create application=>Argo CD ApplicationSet - Push Model'
