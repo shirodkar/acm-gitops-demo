@@ -38,14 +38,16 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 ## Import Managed Clusters into RHACM
 
 1. In the Openshift Console, make sure you have switched to ACM using the 'Fleet Management' prespective.
-2. Import the Managed cluster(s) into ACM via 'Infrastructure=>Clusters=>Import Cluster'
+2. Import every Managed cluster into ACM via 'Infrastructure=>Clusters=>Import Cluster'
   - Make sure to add the cluster to one of the following ClusterSets: dev, qa, uat, prod
   - Make sure to provide the 'env' label with one of the following values dev, qa, uat, prod. Example: ```env=dev```
   - You can provide the server url and token of your cluster(s) to ACM.
 
 **Note:** ACM Policies and GitOps manifests will be automatically applied to the imported Managed clusters. It could take about 5-10 minutes for the installation to complete on the managed clusters. Wait until all apps in ArgoCD are Healthy and Synced.
 
-**TBD:** On the uat cluster, the Gatekeeper instance is not created automatically. It needs to be manually created for now.
+**TBD:** On the uat cluster, the Gatekeeper instance is not created automatically through GitOps yet. It needs to be manually created for now, using the following step:
+
+3. On the uat cluster, go to 'Ecosystem=>Installed operators=>Gatekeeper operator" and create a new instance of Gatekeeper with the default values. The status will show blank, but you can verify that new pods have been created in the 'openshift-gatekeeper-system' namespace.
 
 ## Demo
 
