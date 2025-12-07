@@ -17,7 +17,7 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 ```oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller --rolebinding-name gitops-role-binding```
 
 5. Set up the following users in each cluster - 'admin', 'developer'. 
-Note: RBAC for these users will be automatically set up via GitOps in the next section.
+**Note:** RBAC for these users will be automatically set up via GitOps in the next section.
 
 ## Install the Platform components using GitOps
 
