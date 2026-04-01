@@ -11,7 +11,7 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 
 1. Install Advanced Cluster Management for Kubernetes (ACM) Operator on the Hub cluster, and the MultiClusterHub instance.
 2. Install Openshift GitOps (ArgoCD) Operator on the Hub cluster.
-3. Make sure you are logged into the OCP cluster as a cluster admin.
+3. Make sure you are logged into the OCP cluster, from the command line, as a cluster admin.
 4. Give ArgoCD access to the OCP cluster:
 
 ```oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller --rolebinding-name gitops-role-binding```
@@ -24,11 +24,11 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 
 1. ```git clone https://github.com/shirodkar/acm-gitops-demo.git```
 2. ```cd acm-gitops-demo```
-3. Make sure you are logged into the OCP cluster as a cluster admin.
+3. Make sure you are logged into the OCP hub cluster, from the command line, as a cluster admin.
 4. Run the command: 
 ```oc apply -f gitops/platform/app-of-apps/applications.yaml```
 
-**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up.
+**Note:** Wait for the 'hub' app in Cluster Argo CD to sync up. You should see a green 'Hub' banner on the Openshift Console.
 
 5. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
 6. Add the 'local-cluster' to the 'hub-clusters' cluster set via 'Infrastructure=>Clusters=>Cluster sets'
