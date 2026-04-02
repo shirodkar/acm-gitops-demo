@@ -41,6 +41,7 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 2. Import every Managed cluster into ACM via 'Infrastructure=>Clusters=>Import Cluster'
   - Name the cluster - dev, qa, uat, prod
   - Make sure to add the cluster to one of the following ClusterSets: dev-clusters, qa-clusters, uat-clusters, prod-clusters
+    - qa-clusters: Pull Model is used to deploy applications to clusters in this cluster set. All other cluster sets use the Push Model.
   - Make sure to provide the 'env' label with one of the following values dev, qa, uat, prod. Example: ```env=dev```
   - You can provide the server url and token of your cluster(s) to ACM.
 
