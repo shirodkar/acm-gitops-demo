@@ -15,10 +15,10 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: install-gitops-operator-on-hub-cluster
+  name: install-gitops-operator-on-non-prod-cluster
   namespace: openshift-gitops
 placementRef:
-  name: hub-only-placement
+  name: non-prod-only-placement
   kind: Placement
   apiGroup: cluster.open-cluster-management.io
 subjects:
@@ -29,14 +29,42 @@ subjects:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: install-gitops-operator-on-managed-clusters
+  name: install-gitops-operator-on-non-prod-clusters
   namespace: openshift-gitops
 placementRef:
-  name: all-managed-placement
+  name: non-prod-only-placement
   kind: Placement
   apiGroup: cluster.open-cluster-management.io
 subjects:
   - name: install-gitops-operator
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: install-gitops-operator-on-prod-cluster
+  namespace: openshift-gitops
+placementRef:
+  name: prod-only-placement
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+subjects:
+  - name: install-gitops-operator-with-argocd-rollouts
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: install-gitops-operator-on-prod-clusters
+  namespace: openshift-gitops
+placementRef:
+  name: prod-only-placement
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+subjects:
+  - name: install-gitops-operator-with-argocd-rollouts
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
