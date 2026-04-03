@@ -3,7 +3,7 @@ kind: ConsoleNotification
 metadata:
   name: banner
 spec:
-  backgroundColor: '{{ .Values.bannercolor }}'
+  backgroundColor: 'blue'
   color: white
   location: BannerTop
-  text: 'MANAGED ({{ .Values.managedservername }})'
+  text: 'ENVIRONMENT'

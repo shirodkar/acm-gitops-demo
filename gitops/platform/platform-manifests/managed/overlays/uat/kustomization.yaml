@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - argo-rollouts.yaml
 
 patches:
   - target:
@@ -12,7 +11,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/backgroundColor
-        value: 'red'
+        value: 'orange'
       - op: replace
         path: /spec/text
-        value: 'MANAGED (PROD)'
+        value: 'MANAGED (UAT)'
