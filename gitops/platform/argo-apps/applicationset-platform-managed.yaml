@@ -24,14 +24,6 @@ spec:
         path: gitops/platform/platform-manifests/managed
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
-        helm:
-          parameters:
-            - name: managedservername
-              value: '{{name}}'
-            - name: bannercolor
-              value: blue
-            - name: serverurl
-              value: '{{ server }}'
       syncPolicy:
         automated:
           enabled: true
@@ -64,14 +56,6 @@ spec:
         path: gitops/platform/platform-manifests/managed
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
-        helm:
-          parameters:
-            - name: managedservername
-              value: '{{name}}'
-            - name: bannercolor
-              value: purple
-            - name: serverurl
-              value: '{{ server }}'
       syncPolicy:
         automated:
           enabled: true
@@ -104,14 +88,6 @@ spec:
         path: gitops/platform/platform-manifests/managed
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
-        helm:
-          parameters:
-            - name: managedservername
-              value: '{{name}}'
-            - name: bannercolor
-              value: orange
-            - name: serverurl
-              value: '{{ server }}'
       syncPolicy:
         automated:
           enabled: true
@@ -144,14 +120,6 @@ spec:
         path: gitops/platform/platform-manifests/managed
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
-        helm:
-          parameters:
-            - name: managedservername
-              value: '{{name}}'
-            - name: bannercolor
-              value: red
-            - name: serverurl
-              value: '{{ server }}'
       syncPolicy:
         automated:
           enabled: true
