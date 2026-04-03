@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - argocds.yaml
   - console-notifications.yaml
-  - namespace.yaml
+  - namespaces.yaml
   - rbacs.yaml
 
