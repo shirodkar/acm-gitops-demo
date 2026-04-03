@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: rollouts-demo
+        deployment: rollouts-demo
     spec:
       containers:
         - name: rollouts-demo

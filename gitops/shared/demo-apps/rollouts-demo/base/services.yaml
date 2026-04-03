@@ -13,3 +13,4 @@ spec:
   type: ClusterIP
   selector:
     app: rollouts-demo
+    deployment: rollouts-demo
