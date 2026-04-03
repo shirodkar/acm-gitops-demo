@@ -21,7 +21,7 @@ spec:
         server: "{{server}}"
       project: default
       source:
-        path: gitops/platform/platform-manifests/managed
+        path: gitops/platform/platform-manifests/managed/base
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
       syncPolicy:
@@ -53,7 +53,7 @@ spec:
         server: "{{server}}"
       project: default
       source:
-        path: gitops/platform/platform-manifests/managed
+        path: gitops/platform/platform-manifests/managed/base
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
       syncPolicy:
@@ -85,7 +85,7 @@ spec:
         server: "{{server}}"
       project: default
       source:
-        path: gitops/platform/platform-manifests/managed
+        path: gitops/platform/platform-manifests/managed/base
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
       syncPolicy:
@@ -117,7 +117,7 @@ spec:
         server: "{{server}}"
       project: default
       source:
-        path: gitops/platform/platform-manifests/managed
+        path: gitops/platform/platform-manifests/managed/overlays/prod
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
         targetRevision: HEAD
       syncPolicy:
