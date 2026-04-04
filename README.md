@@ -14,7 +14,9 @@ This is a GitOps repo which demonstrates the features of Red Hat Advanced Cluste
 3. Make sure you are logged into the OCP cluster, from the command line, as a cluster admin.
 4. Give ArgoCD access to the OCP cluster:
 
-```oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller --rolebinding-name gitops-role-binding```
+```
+oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller --rolebinding-name gitops-role-binding
+```
 
 5. Set up the following users in each cluster - 'admin', 'developer'. 
 
