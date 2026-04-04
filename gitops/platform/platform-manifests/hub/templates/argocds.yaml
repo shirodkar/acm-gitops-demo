@@ -401,6 +401,7 @@ spec:
         cpu: 250m
         memory: 128Mi
   controller:
+    enabled: false
     processors: {}
     resources:
       limits:
@@ -410,3 +411,10 @@ spec:
         cpu: '1'
         memory: 2Gi
     sharding: {}
+  argoCDAgent:
+    principal:
+      auth: mtls:CN=system:open-cluster-management:cluster:([^:]+):addon:gitops-addon:agent:gitops-addon-agent
+      enabled: true
+    namespaces:
+      allowedNamespaces:
+      - '*'

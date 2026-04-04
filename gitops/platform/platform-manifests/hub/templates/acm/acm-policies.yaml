@@ -59,6 +59,14 @@ spec:
             channel: latest
             source: redhat-operators
             sourceNamespace: openshift-marketplace
+            config:
+              env:
+              - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+                value: openshift-gitops
+              - name: ARGOCD_PRINCIPAL_TLS_SERVER_ALLOW_GENERATE
+                value: "false"
+              - name: ARGOCD_PRINCIPAL_REDIS_SERVER_ADDRESS
+                value: openshift-gitops-redis:6379
           upgradeApproval: Automatic
 ---
 apiVersion: policy.open-cluster-management.io/v1
