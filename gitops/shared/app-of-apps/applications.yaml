@@ -12,7 +12,7 @@ spec:
   source:
     path: gitops/shared/argo-apps
     repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-    targetRevision: argocd-agent
+    targetRevision: HEAD
     directory:
       recurse: true
   syncPolicy:
