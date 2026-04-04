@@ -10,6 +10,10 @@ spec:
     apiVersion: cluster.open-cluster-management.io/v1beta1
     kind: Placement
     name: all-managed-placement
+  gitopsAddon:
+    enabled: true
+    argoCDAgent:
+      enabled: true
 ---
 apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
@@ -23,3 +27,7 @@ spec:
     apiVersion: cluster.open-cluster-management.io/v1beta1
     kind: Placement
     name: all-managed-placement
+  gitopsAddon:
+    enabled: true
+    argoCDAgent:
+      enabled: true
