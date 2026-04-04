@@ -12,7 +12,7 @@ spec:
   source:
     path: gitops/platform/platform-manifests/hub
     repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-    targetRevision: HEAD
+    targetRevision: Hargocd-agentD
   syncPolicy:
     automated:
       enabled: true
