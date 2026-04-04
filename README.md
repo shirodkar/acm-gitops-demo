@@ -24,11 +24,17 @@ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:opens
 
 ## Install the Platform components using GitOps
 
-1. ```git clone https://github.com/shirodkar/acm-gitops-demo.git```
-2. ```cd acm-gitops-demo```
-3. Make sure you are logged into the OCP hub cluster, from the command line, as a cluster admin.
-4. Run the command: 
-```oc apply -f gitops/platform/app-of-apps/applications.yaml```
+1. ```
+   git clone https://github.com/shirodkar/acm-gitops-demo.git
+   ```
+3. ```
+   cd acm-gitops-demo
+   ```
+5. Make sure you are logged into the OCP hub cluster, from the command line, as a cluster admin.
+6. Run the command: 
+```
+oc apply -f gitops/platform/app-of-apps/applications.yaml
+```
 
 **Note:** Wait for the 'hub' app in Cluster Argo CD to sync up. You should see a green 'Hub' banner on the Openshift Console.
 
@@ -82,9 +88,11 @@ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:opens
 
 1. Log into the Hub cluster from command line as 'developer'.
 2. Run the following command to deploy the 'rollouts-demo' application in all environments: 
-```oc apply -f gitops/shared/app-of-apps/applications.yaml```
-3. Wait for successful deployment in Shared Argo CD at: https://shared-gitops-server-shared-gitops.<base url of hub cluster>
-4. View the ApplicationSets YAML manifests.
+```
+oc apply -f gitops/shared/app-of-apps/applications.yaml
+```
+4. Wait for successful deployment in Shared Argo CD at: https://shared-gitops-server-shared-gitops.<base url of hub cluster>
+5. View the ApplicationSets YAML manifests.
 
 #### Push Model (in dev)
 
@@ -102,7 +110,10 @@ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:opens
 2. View the apps in Shared Argo CD.
 3. View the paused status in Argo Rollouts UI.
     - Log into the prod cluster as a cluster admin
-    - Run the command: ```oc argo rollouts dashboard```
+    - Run the command:
+      ```
+      oc argo rollouts dashboard
+      ```
     - Launch the provided url in a browser, and select the 'demo-rollouts' project, on the top right.
 4. View the application UI. It should show partial rollout - 20%.
 5. Promote the rollout, and watch the application UI progress to 100% rollout.
