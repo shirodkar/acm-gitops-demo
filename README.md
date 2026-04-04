@@ -35,7 +35,8 @@ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:opens
 ```
 oc apply -f gitops/platform/app-of-apps/applications.yaml
 ```
-7. Launch the ArgoCD UI using the 'Cluster Argo CD' shortcut on the top of the OpenShift Console.
+7. Launch the ArgoCD UI using the 'Cluster Argo CD' shortcut on top of the OpenShift Console.
+
 **Note:** Wait for the 'hub' app in Cluster Argo CD to sync up. You should see a green 'Hub' banner on the Openshift Console.
 
 5. In the Openshift Console, switch to ACM using the 'Fleet Management' prespective.
