@@ -23,7 +23,7 @@ spec:
       source:
         path: gitops/platform/platform-manifests/managed/overlays/dev
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-        targetRevision: argocd-agent
+        targetRevision: HEAD
       syncPolicy:
         automated:
           enabled: true
@@ -55,7 +55,7 @@ spec:
       source:
         path: gitops/platform/platform-manifests/managed/overlays/qa
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-        targetRevision: argocd-agent
+        targetRevision: HEAD
       syncPolicy:
         automated:
           enabled: true
@@ -87,7 +87,7 @@ spec:
       source:
         path: gitops/platform/platform-manifests/managed/overlays/uat
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-        targetRevision: argocd-agent
+        targetRevision: HEAD
       syncPolicy:
         automated:
           enabled: true
@@ -119,7 +119,7 @@ spec:
       source:
         path: gitops/platform/platform-manifests/managed/overlays/prod
         repoURL: 'https://github.com/shirodkar/acm-gitops-demo.git'
-        targetRevision: argocd-agent
+        targetRevision: HEAD
       syncPolicy:
         automated:
           enabled: true
