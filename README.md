@@ -50,7 +50,7 @@ oc apply -f gitops/platform/app-of-apps/applications.yaml
 2. Import every Managed cluster into ACM via 'Infrastructure=>Clusters=>Import Cluster'
   - Name the cluster - dev, qa, uat, prod
   - Make sure to add the cluster to one of the following ClusterSets: dev-clusters, qa-clusters, uat-clusters, prod-clusters
-    - dev-clusters: Push Model is used to deploy applications to clusters in this cluster set. All other cluster sets use the Pull Model. (i.e. except dev, all other ```ApplicationSets``` have the label - ```apps.open-cluster-management.io/pull-to-ocm-managed-cluster: "true"```
+    - dev-clusters: Push Model is used to deploy applications to clusters in this cluster set. All other cluster sets use the Pull Model. (i.e. except dev, all other ```ApplicationSets``` have the label - ```apps.open-cluster-management.io/pull-to-ocm-managed-cluster: "true"```)
   - Make sure to provide the 'env' label with one of the following values dev, qa, uat, prod. Example: ```env=dev```
   - You can provide the server url and token of your cluster(s) to ACM.
 
